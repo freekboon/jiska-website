@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import classes from "./Header.module.scss";
 import Link from "next/link";
 import { useRouter } from "next/router";
-
+import Menu from "~public/icons/menu.svg";
+import Cross from "~public/icons/cross.svg";
 const sections = ["about", "experience", "soft-skills", "skills", "contact"];
 
 const Header = () => {
@@ -20,10 +21,15 @@ const Header = () => {
         className={classes.menu_button}
         onClick={() => setShowMenu(!showMenu)}
       >
-        M
+        <Menu />
       </button>
       <div className={classes[`menu${showMenu ? "_open" : ""}`]}>
-        <button onClick={() => setShowMenu(false)}>Close</button>
+        <button
+          className={classes.close_button}
+          onClick={() => setShowMenu(false)}
+        >
+          <Cross />
+        </button>
         {sections.map((section) => (
           <div key={section}>
             <Link href={`#${section}`}>

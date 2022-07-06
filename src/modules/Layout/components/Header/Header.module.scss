@@ -1,6 +1,7 @@
 @use "src/styles/typography";
 @use "src/styles/palette";
 @use "src/styles/layout";
+@use "src/styles/buttons";
 
 .header {
   display: flex;
@@ -59,7 +60,10 @@
 }
 
 .menu_button {
+  @extend .button_icon;
+
   margin-left: auto;
+
   @media (min-width: layout.breakpoint(md)) {
     display: none;
   }
@@ -83,6 +87,14 @@
 
     right: 0;
   }
+}
+
+.close_button {
+  @extend .button_icon;
+
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
 }
 
 .cta {

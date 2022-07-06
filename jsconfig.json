@@ -10,7 +10,8 @@
       "~config/*": ["config/*"],
       "~hooks/*": ["src/hooks/*"],
       "~contexts/*": ["src/contexts/*"],
-      "~constants/*": ["src/constants/*"]
+      "~constants/*": ["src/constants/*"],
+      "~public/*": ["public/*"]
     }
   }
 }
