@@ -1,0 +1,10 @@
+$primary: (base: #6eaa59, light: #cde26e);
+$black: (base: #3c4046, light: #9D9FA2);
+
+$brand-palette: (primary: $primary, black: $black);
+
+@function brand($key: primary, $variant: base) {
+  $color-palette: map-get($brand-palette, $key);
+
+  @return map-get($color-palette, $variant);
+}

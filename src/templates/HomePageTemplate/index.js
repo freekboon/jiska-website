@@ -1,8 +1,9 @@
 import React from "react";
 import { shape, string } from "prop-types";
+import classes from "./HomePageTemplate.module.scss";
 
 const HomePageTemplate = ({ homePage }) => (
-  <div>
+  <div className={classes.root}>
     <h1>{homePage.heading}</h1>
   </div>
 );
