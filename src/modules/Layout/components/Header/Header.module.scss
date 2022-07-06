@@ -1,5 +1,6 @@
 @use "src/styles/typography";
 @use "src/styles/palette";
+@use "src/styles/layout";
 
 .header {
   display: flex;
@@ -15,6 +16,10 @@
   margin-left: auto;
   display: flex;
   column-gap: 1rem;
+
+  @media (max-width: layout.breakpoint(md)) {
+    display: none;
+  }
 }
 
 .nav_link {
@@ -24,6 +29,7 @@
   text-decoration: none;
   transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   padding: .6rem 0;
+  display: inline-block;
 
   hr {
     width: 0;
@@ -50,4 +56,37 @@
   height: 1px;
   border: none;
   border-top: 1px solid palette.brand(primary);
+}
+
+.menu_button {
+  margin-left: auto;
+  @media (min-width: layout.breakpoint(md)) {
+    display: none;
+  }
+}
+
+.menu {
+  background: white;
+  width: 80%;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  right: -100%;
+  bottom: 0;
+  box-shadow: -1rem 1px 1rem 0 rgba(0,0,0,0.1);
+  transition: right 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  padding: 1rem;
+;
+
+  &_open {
+    @extend .menu;
+
+    right: 0;
+  }
+}
+
+.cta {
+  @media (max-width: layout.breakpoint(md)) {
+    display: none;
+  }
 }
