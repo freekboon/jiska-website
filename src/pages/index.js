@@ -10,6 +10,7 @@ const HOME_PAGE_QUERY = gql`
   query HomePage($locale: SiteLocale!) {
     homePage(locale: $locale) {
       heading
+      intro
     }
   }
 `;

@@ -1,0 +1,73 @@
+$family: 'Montserrat', sans-serif;
+
+%base {
+  font-family: $family;
+  margin: 0 0 0.35em;
+}
+
+.h1 {
+  @extend %base;
+
+  font-weight: 300;
+  font-size: 6rem;
+  line-height:1.167;
+  letter-spacing: -0.01562em;
+}
+
+.h2 {
+  @extend %base;
+
+  font-weight: 300;
+  font-size: 3.75rem;
+  line-height: 1.2;
+  letter-spacing: -0.00833em;
+}
+
+.h3 {
+  @extend %base;
+
+  font-weight: 400;
+  font-size: 3rem;
+  line-height: 1.167;
+  letter-spacing: 0;
+}
+
+.h4 {
+  @extend %base;
+
+  font-weight: 400;
+  font-size: 2.125rem;
+  line-height: 1.235;
+  letter-spacing: 0.00735em;
+}
+
+.body {
+  @extend %base;
+
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.5;
+  letter-spacing: 0.00938em;
+}
+
+.button_text {
+  @extend %base;
+
+  font-weight: 500;
+  font-size: 0.875rem;
+  line-height: 1.75;
+  letter-spacing: 0.02857em;
+  text-transform: uppercase;
+  display: block;
+}
+
+.overline_text {
+  @extend %base;
+
+  font-weight: 400;
+  font-size: 0.75rem;
+  line-height: 2.66;
+  letter-spacing: 0.08333em;
+  text-transform: uppercase;
+  display: block;
+}
