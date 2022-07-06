@@ -1,8 +1,0 @@
-@use "palette";
-
-:root {
-  @each $key, $palette in palette.$brand-palette {
-    --brand-#{$key}: #{map-get($palette, base)};
-    --brand-#{$key}-light: #{map-get($palette, light)};
-  }
-}

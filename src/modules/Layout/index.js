@@ -1,10 +1,13 @@
 import React from "react";
 import { node } from "prop-types";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 const Layout = ({ children }) => (
   <>
-    <h1>With a layout!</h1>
+    <Header />
     {children}
+    <Footer />
   </>
 );
 

@@ -1,0 +1,15 @@
+$breakpoints: (xs: 0, sm: 600, md: 900, lg: 1200, xl: 1536);
+
+.container {
+  width: 100%;
+  max-width: initial;
+  margin: 0 auto;
+}
+
+@each $key, $value in $breakpoints {
+  .container_#{$key} {
+    @extend .container;
+
+    max-width: #{$value}px;
+  }
+}

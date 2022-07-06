@@ -1,6 +1,5 @@
 import React from "react";
 import "~styles/globals.scss";
-import "~styles/variables.scss";
 import { any, func } from "prop-types";
 
 const App = ({ Component, pageProps }) => {
