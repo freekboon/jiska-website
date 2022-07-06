@@ -47,7 +47,6 @@ const Header = () => {
             </Link>
           </div>
         ))}
-        <div>cta</div>
       </div>
       <nav className={classes.navigation}>
         {sections.map((section) => (
@@ -63,7 +62,6 @@ const Header = () => {
           </Link>
         ))}
       </nav>
-      <div className={classes.cta}>cta</div>
     </header>
   );
 };

@@ -1,9 +1,14 @@
+@use "palette";
+@use "typography";
+
 %base {
+  @extend .button_text;
+
   border: none;
   background: none;
   padding: 0;
-  line-height: 1;
-  font-size: 1rem;
+  cursor: pointer;
+  margin: 0;
 }
 
 .button_icon {
@@ -14,5 +19,28 @@
   svg {
     width: 1.5rem;
     vertical-align: middle;
+  }
+}
+
+@mixin solid($palette) {
+  @extend %base;
+
+  background-color: map-get($palette, base);
+  color: #fff;
+  padding: .375rem 1rem;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+
+  &:hover {
+    background-color: map-get($palette, dark);
+  }
+
+  &:active {
+    background-color: map-get($palette, light);
+  }
+}
+
+@each $key, $palette in palette.$brand-palette {
+  .button_solid_#{$key} {
+    @include solid($palette)
   }
 }
