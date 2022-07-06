@@ -3,3 +3,10 @@
 
 .root {
 }
+
+.section {
+  @extend .container_lg;
+
+  height: 100vh;
+  padding-top: 50px;
+}

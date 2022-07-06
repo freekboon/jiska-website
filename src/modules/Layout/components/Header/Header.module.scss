@@ -1,1 +1,53 @@
-@use "src/styles/layout";
+@use "src/styles/typography";
+@use "src/styles/palette";
+
+.header {
+  display: flex;
+  column-gap: 1rem;
+  padding: 0 1rem;
+  position: sticky;
+  top: 0;
+  background: white;
+  border-bottom: 1px solid palette.brand(black);
+}
+
+.navigation {
+  margin-left: auto;
+  display: flex;
+  column-gap: 1rem;
+}
+
+.nav_link {
+  @extend .button_text;
+
+  color: initial;
+  text-decoration: none;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  padding: .6rem 0;
+
+  hr {
+    width: 0;
+    transition: width 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  }
+
+  &:hover {
+    color: palette.brand(primary);
+  }
+
+  &_active {
+    @extend .nav_link;
+
+    color: palette.brand(primary);
+
+    hr {
+      width: 100%;
+    }
+  }
+}
+
+.nav_link_line {
+  margin: 0;
+  height: 1px;
+  border: none;
+  border-top: 1px solid palette.brand(primary);
+}

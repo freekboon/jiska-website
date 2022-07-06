@@ -4,14 +4,24 @@ import classes from "./HomePageTemplate.module.scss";
 
 const HomePageTemplate = () => (
   <div className={classes.root}>
-    <section className={classes.container_lg}>
+    <section className={classes.section}>
       <h1 className={classes.h1}>Intro</h1>
     </section>
-    <section className={classes.container_lg}>About me</section>
-    <section className={classes.container_lg}>My experience</section>
-    <section className={classes.container_lg}>My soft skills</section>
-    <section className={classes.container_lg}>My skills</section>
-    <section className={classes.container_lg}>Contact</section>
+    <section id="about" className={classes.section}>
+      About me
+    </section>
+    <section id="experience" className={classes.section}>
+      My experience
+    </section>
+    <section id="soft-skills" className={classes.section}>
+      My soft skills
+    </section>
+    <section id="skills" className={classes.section}>
+      My skills
+    </section>
+    <section id="contact" className={classes.section}>
+      Contact
+    </section>
   </div>
 );
 
