@@ -11,6 +11,10 @@
   margin: 0;
 }
 
+.button_base {
+  @extend %base;
+}
+
 .button_icon {
   @extend %base;
 

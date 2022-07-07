@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import classes from "./Header.module.scss";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -9,12 +9,17 @@ import NavigationContext from "~constants/NavigationContext";
 
 const Header = () => {
   const router = useRouter();
-  const { pathname, asPath, locale, locales } = router;
+  const { pathname, locale, locales } = router;
   const [showMenu, setShowMenu] = useState(false);
-  const [currentSection, setCurrentSection] = useState(null);
-  const { sections } = useContext(NavigationContext);
+  const { currentSection, sections, scrollToSection } =
+    useContext(NavigationContext);
 
   const closeMenu = () => setShowMenu(false);
+
+  const handleScrollTo = (sectionId) => {
+    scrollToSection(sectionId);
+    closeMenu();
+  };
 
   const selectLocale = (event) => {
     if (showMenu) {
@@ -22,10 +27,6 @@ const Header = () => {
     }
     return router.push(pathname, pathname, { locale: event.target.value });
   };
-
-  useEffect(() => {
-    setCurrentSection(asPath);
-  }, [asPath]);
 
   return (
     <header className={classes.header}>
@@ -47,21 +48,17 @@ const Header = () => {
         </button>
         {sections.map(({ sectionId, title }) => (
           <div key={sectionId}>
-            <Link href={`#${sectionId}`}>
-              <a
-                onClick={closeMenu}
-                className={
-                  classes[
-                    `nav_link${
-                      currentSection === `/#${sectionId}` ? "_active" : ""
-                    }`
-                  ]
-                }
-              >
-                {title}
-                <hr className={classes.nav_link_line} />
-              </a>
-            </Link>
+            <button
+              onClick={() => handleScrollTo(sectionId)}
+              className={
+                classes[
+                  `nav_link${currentSection === sectionId ? "_active" : ""}`
+                ]
+              }
+            >
+              {title}
+              <hr className={classes.nav_link_line} />
+            </button>
           </div>
         ))}
         <div className={classes.select_locale}>
@@ -74,20 +71,18 @@ const Header = () => {
       </div>
       <nav className={classes.navigation}>
         {sections.map(({ sectionId, title }) => (
-          <Link href={`#${sectionId}`} key={sectionId}>
-            <a
-              className={
-                classes[
-                  `nav_link${
-                    currentSection === `/#${sectionId}` ? "_active" : ""
-                  }`
-                ]
-              }
-            >
-              {title}
-              <hr className={classes.nav_link_line} />
-            </a>
-          </Link>
+          <button
+            key={sectionId}
+            onClick={() => scrollToSection(sectionId)}
+            className={
+              classes[
+                `nav_link${currentSection === sectionId ? "_active" : ""}`
+              ]
+            }
+          >
+            {title}
+            <hr className={classes.nav_link_line} />
+          </button>
         ))}
       </nav>
       <div className={classes.select_locale_desktop}>

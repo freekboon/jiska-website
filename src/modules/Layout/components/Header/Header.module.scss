@@ -25,17 +25,18 @@
 
 .nav_link {
   @extend .button_text;
+  @extend .button_base;
 
   color: initial;
   text-decoration: none;
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1) 300ms;
   padding: .6rem 0;
   display: inline-block;
   margin: 0;
 
   hr {
     width: 0;
-    transition: width 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    transition: width 250ms cubic-bezier(0.4, 0, 0.2, 1) 300ms;
   }
 
   &:hover {
