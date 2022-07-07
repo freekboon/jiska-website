@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import classes from "./Header.module.scss";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -12,6 +12,7 @@ const Header = () => {
   const router = useRouter();
   const { pathname, asPath, locale, locales } = router;
   const [showMenu, setShowMenu] = useState(false);
+  const [currentSection, setCurrentSection] = useState(null);
 
   const closeMenu = () => setShowMenu(false);
 
@@ -21,6 +22,10 @@ const Header = () => {
     }
     return router.push(pathname, pathname, { locale: event.target.value });
   };
+
+  useEffect(() => {
+    setCurrentSection(asPath);
+  }, [asPath]);
 
   return (
     <header className={classes.header}>
@@ -47,7 +52,9 @@ const Header = () => {
                 onClick={closeMenu}
                 className={
                   classes[
-                    `nav_link${asPath === `/#${section}` ? "_active" : ""}`
+                    `nav_link${
+                      currentSection === `/#${section}` ? "_active" : ""
+                    }`
                   ]
                 }
               >
@@ -70,7 +77,11 @@ const Header = () => {
           <Link href={`#${section}`} key={section}>
             <a
               className={
-                classes[`nav_link${asPath === `/#${section}` ? "_active" : ""}`]
+                classes[
+                  `nav_link${
+                    currentSection === `/#${section}` ? "_active" : ""
+                  }`
+                ]
               }
             >
               {section}
