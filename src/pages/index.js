@@ -17,7 +17,7 @@ const HOME_PAGE_QUERY = gql`
       heading
       intro
       heroImage {
-        ${ImageFragment(300, 100)}
+        ${ImageFragment(600, 400)}
       } 
     }
   }

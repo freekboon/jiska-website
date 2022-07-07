@@ -1,3 +1,5 @@
+@use "layout";
+
 $family: 'Montserrat', sans-serif;
 
 %base {
@@ -9,9 +11,13 @@ $family: 'Montserrat', sans-serif;
   @extend %base;
 
   font-weight: 300;
-  font-size: 6rem;
+  font-size: 4.5rem;
   line-height:1.167;
   letter-spacing: -0.01562em;
+
+  @media (max-width: layout.breakpoint(md)) {
+    font-size: 3rem;
+  }
 }
 
 .h2 {

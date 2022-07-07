@@ -9,5 +9,6 @@ $breakpoints: (xs: 0, sm: 600, md: 900, lg: 1200, xl: 1536);
     width: 100%;
     max-width: #{$value}px;
     margin: 0 auto;
+    padding: 0 1rem;
   }
 }

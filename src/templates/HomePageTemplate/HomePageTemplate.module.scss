@@ -8,6 +8,9 @@
 .section {
   @extend .container_lg;
 
-  height: 100vh;
   padding-top: 4rem;
+
+  @media (max-width: layout.breakpoint(md)) {
+    padding-top: 1rem;
+  }
 }

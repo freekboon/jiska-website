@@ -1,0 +1,34 @@
+@use "layout";
+
+$cols: 12;
+
+.grid {
+  display: flex;
+  margin: 0 -1rem;
+  flex-wrap: wrap;
+}
+
+@each $key, $value in layout.$breakpoints {
+  @for $col from 1 through $cols {
+    .col_#{$key}_#{$col} {
+      width: 100%;
+      padding: 0 1rem;
+
+      @media (min-width: #{$value}px) {
+        width: calc(100% / 12) * $col;
+      }
+    }
+  }
+}
+
+@each $key, $value in layout.$breakpoints {
+  @for $col from 1 through $cols {
+    .col_offset_#{$key}_#{$col} {
+      margin-left: 0;
+
+      @media (min-width: #{$value}px) {
+        margin-left: calc(100% / 12) * $col;
+      }
+    }
+  }
+}
