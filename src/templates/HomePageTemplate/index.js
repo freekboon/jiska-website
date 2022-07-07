@@ -2,25 +2,26 @@ import React from "react";
 import { shape, string } from "prop-types";
 import classes from "./HomePageTemplate.module.scss";
 
-const HomePageTemplate = () => (
+const HomePageTemplate = ({ homePage }) => (
   <div className={classes.root}>
     <section className={classes.section}>
-      <h1 className={classes.h1}>Intro</h1>
+      <h1 className={classes.h1}>{homePage.heading}</h1>
+      <p className={classes.body}>{homePage.intro}</p>
     </section>
     <section id="about" className={classes.section}>
-      About me
+      <h2>About me</h2>
     </section>
     <section id="experience" className={classes.section}>
-      My experience
+      <h2>Experience</h2>
     </section>
     <section id="soft-skills" className={classes.section}>
-      My soft skills
+      <h2>Soft skills</h2>
     </section>
     <section id="skills" className={classes.section}>
-      My skills
+      <h2>Skills</h2>
     </section>
     <section id="contact" className={classes.section}>
-      Contact
+      <h2>Contact</h2>
     </section>
   </div>
 );
@@ -28,6 +29,7 @@ const HomePageTemplate = () => (
 HomePageTemplate.propTypes = {
   homePage: shape({
     heading: string,
+    intro: string,
   }),
 };
 

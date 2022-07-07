@@ -1,1 +1,13 @@
 @use "src/styles/layout";
+@use "src/styles/palette";
+
+.footer {
+  background-color: palette.brand(black);
+  color: white;
+  padding: 6rem 0;
+  text-align: center;
+
+  a {
+    color: inherit;
+  }
+}

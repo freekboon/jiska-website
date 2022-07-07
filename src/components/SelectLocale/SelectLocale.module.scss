@@ -1,0 +1,16 @@
+@use "src/styles/layout";
+@use "src/styles/palette";
+@use "src/styles/typography";
+
+.select {
+  @extend .button_text;
+
+  text-transform: initial;
+  appearance: none;
+  margin: 0;
+  border: 1px solid palette.brand(black);
+  border-radius: .25rem;
+  padding: 0.25rem 0.5rem;
+  cursor: pointer;
+  background-color: #fff;
+}

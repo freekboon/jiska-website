@@ -88,6 +88,10 @@
 
     right: 0;
   }
+
+  @media (min-width: layout.breakpoint(md)) {
+    display: none;
+  }
 }
 
 .close_button {
@@ -96,4 +100,17 @@
   position: absolute;
   top: 1rem;
   right: 1rem;
+}
+
+.select_locale {
+  display: flex;
+  align-items: center;
+
+  &_desktop {
+    @extend .select_locale;
+
+    @media (max-width: layout.breakpoint(md)) {
+      display: none;
+    }
+  }
 }
