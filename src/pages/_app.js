@@ -1,16 +1,28 @@
 import React from "react";
 import "~styles/globals.scss";
-import { any, func } from "prop-types";
+import { arrayOf, func, shape, string } from "prop-types";
+import { NavigationProvider } from "~constants/NavigationContext";
 
 const App = ({ Component, pageProps }) => {
   const getLayout = Component.getLayout || ((page) => page);
 
-  return getLayout(<Component {...pageProps} />);
+  return (
+    <NavigationProvider sections={pageProps.allSections}>
+      {getLayout(<Component {...pageProps} />)}
+    </NavigationProvider>
+  );
 };
 
 App.propTypes = {
   Component: func,
-  pageProps: any,
+  pageProps: shape({
+    allSections: arrayOf(
+      shape({
+        sectionId: string,
+        title: string,
+      })
+    ),
+  }),
 };
 
 export default App;

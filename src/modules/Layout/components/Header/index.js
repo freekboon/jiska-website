@@ -1,18 +1,18 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import classes from "./Header.module.scss";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import Menu from "~public/icons/menu.svg";
 import Cross from "~public/icons/cross.svg";
 import SelectLocale from "~components/SelectLocale";
-
-const sections = ["about", "experience", "soft-skills", "skills", "contact"];
+import NavigationContext from "~constants/NavigationContext";
 
 const Header = () => {
   const router = useRouter();
   const { pathname, asPath, locale, locales } = router;
   const [showMenu, setShowMenu] = useState(false);
   const [currentSection, setCurrentSection] = useState(null);
+  const { sections } = useContext(NavigationContext);
 
   const closeMenu = () => setShowMenu(false);
 
@@ -45,20 +45,20 @@ const Header = () => {
         >
           <Cross />
         </button>
-        {sections.map((section) => (
-          <div key={section}>
-            <Link href={`#${section}`}>
+        {sections.map(({ sectionId, title }) => (
+          <div key={sectionId}>
+            <Link href={`#${sectionId}`}>
               <a
                 onClick={closeMenu}
                 className={
                   classes[
                     `nav_link${
-                      currentSection === `/#${section}` ? "_active" : ""
+                      currentSection === `/#${sectionId}` ? "_active" : ""
                     }`
                   ]
                 }
               >
-                {section}
+                {title}
                 <hr className={classes.nav_link_line} />
               </a>
             </Link>
@@ -73,18 +73,18 @@ const Header = () => {
         </div>
       </div>
       <nav className={classes.navigation}>
-        {sections.map((section) => (
-          <Link href={`#${section}`} key={section}>
+        {sections.map(({ sectionId, title }) => (
+          <Link href={`#${sectionId}`} key={sectionId}>
             <a
               className={
                 classes[
                   `nav_link${
-                    currentSection === `/#${section}` ? "_active" : ""
+                    currentSection === `/#${sectionId}` ? "_active" : ""
                   }`
                 ]
               }
             >
-              {section}
+              {title}
               <hr className={classes.nav_link_line} />
             </a>
           </Link>

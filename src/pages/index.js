@@ -8,6 +8,10 @@ const Home = (props) => <HomePageTemplate {...props} />;
 
 const HOME_PAGE_QUERY = gql`
   query HomePage($locale: SiteLocale!) {
+    allSections(locale: $locale) {
+      sectionId
+      title
+    }
     homePage(locale: $locale) {
       heading
       intro
