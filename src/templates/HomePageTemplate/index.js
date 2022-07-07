@@ -2,12 +2,14 @@ import React from "react";
 import { shape, string } from "prop-types";
 import classes from "./HomePageTemplate.module.scss";
 import Section from "~components/Section";
+import Image, { ImageType } from "~components/Image";
 
 const HomePageTemplate = ({ homePage }) => (
   <div className={classes.root}>
     <Section sectionId="intro" className={classes.section}>
       <h1 className={classes.h1}>{homePage.heading}</h1>
       <p className={classes.body}>{homePage.intro}</p>
+      <Image {...homePage.heroImage} />
     </Section>
     <Section sectionId="about" className={classes.section}>
       <h2>About me</h2>
@@ -31,6 +33,7 @@ HomePageTemplate.propTypes = {
   homePage: shape({
     heading: string,
     intro: string,
+    heroImage: shape(ImageType),
   }),
 };
 

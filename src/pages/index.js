@@ -3,6 +3,7 @@ import withLayout from "~utils/withLayout";
 import request from "~utils/dato";
 import { gql } from "graphql-request";
 import HomePageTemplate from "~templates/HomePageTemplate";
+import { ImageFragment } from "~components/Image";
 
 const Home = (props) => <HomePageTemplate {...props} />;
 
@@ -15,6 +16,9 @@ const HOME_PAGE_QUERY = gql`
     homePage(locale: $locale) {
       heading
       intro
+      heroImage {
+        ${ImageFragment(300, 100)}
+      } 
     }
   }
 `;
