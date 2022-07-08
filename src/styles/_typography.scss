@@ -1,4 +1,5 @@
 @use "layout";
+@use "palette";
 
 $family: 'Montserrat', sans-serif;
 
@@ -85,4 +86,18 @@ $family: 'Montserrat', sans-serif;
   letter-spacing: 0.08333em;
   text-transform: uppercase;
   display: block;
+}
+
+.caption_text {
+  @extend %base;
+
+  font-weight: 700;
+  font-size: 0.875rem;
+  line-height: 1;
+  letter-spacing: 0.00938em;
+  text-transform: uppercase;
+}
+
+.text_muted {
+  color: palette.brand(black, light);
 }

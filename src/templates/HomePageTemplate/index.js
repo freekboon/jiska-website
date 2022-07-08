@@ -5,6 +5,7 @@ import Section from "~components/Section";
 import { ImageType } from "~components/Image";
 import HeroSection from "~modules/HeroSection";
 import Job, { JobType } from "~components/Job";
+import Skill from "~components/Skill";
 
 const HomePageTemplate = ({ homePage }) => (
   <div>
@@ -27,7 +28,9 @@ const HomePageTemplate = ({ homePage }) => (
       <h2>Soft skills</h2>
     </Section>
     <Section sectionId="skills" className={classes.container_lg}>
-      <h2>Skills</h2>
+      <div style={{ width: "300px" }}>
+        <Skill title="yeay" progress={45} />
+      </div>
     </Section>
     <Section sectionId="contact" className={classes.container_lg}>
       <h2>Contact</h2>
