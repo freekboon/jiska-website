@@ -60,7 +60,7 @@ $breakpoint: sm;
   @extend .col;
 
   @media (min-width: layout.breakpoint($breakpoint)) {
-    padding: 0 0 2rem 0;
+    padding: 0 0 2rem 2rem;
   }
 
   &_align_right {
