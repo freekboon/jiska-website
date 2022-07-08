@@ -2,8 +2,7 @@ import React from "react";
 import { arrayOf, shape, string } from "prop-types";
 import classes from "./HomePageTemplate.module.scss";
 import Section from "~components/Section";
-import { ImageType } from "~components/Image";
-import HeroSection from "~modules/HeroSection";
+import Image, { ImageType } from "~components/Image";
 import Job, { JobType } from "~components/Job";
 import Skill, { SkillType } from "~components/Skill";
 import classnames from "~utils/classnames";
@@ -11,11 +10,16 @@ import classnames from "~utils/classnames";
 const HomePageTemplate = ({ homePage }) => (
   <div>
     <Section sectionId="intro" className={classes.container_lg}>
-      <HeroSection
-        heading={homePage.heading}
-        intro={homePage.intro}
-        image={homePage.heroImage}
-      />
+      <div className={classes.grid}>
+        <div className={classes.col_md_6}>
+          <div className={classes.overline_text}>Hello</div>
+          <h1 className={classes.title}>{homePage.heading}</h1>
+          <p className={classes.body}>{homePage.intro}</p>
+        </div>
+        <div className={classes.col_md_6}>
+          <Image {...homePage.heroImage} />
+        </div>
+      </div>
     </Section>
     <Section sectionId="about" className={classes.container_lg}>
       <h2>About me</h2>

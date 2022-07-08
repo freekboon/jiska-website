@@ -15,7 +15,7 @@ const Skill = ({ title, progress }) => {
     const handleScroll = () => {
       const windowPosition = window.scrollY;
 
-      setShow(barPosition < windowPosition + windowHeight - 128);
+      setShow(barPosition < windowPosition + windowHeight - 196);
     };
 
     window.addEventListener("scroll", handleScroll);

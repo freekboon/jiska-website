@@ -46,6 +46,10 @@ $family: 'Montserrat', sans-serif;
   font-size: 2.125rem;
   line-height: 1.235;
   letter-spacing: 0.00735em;
+
+  @media (max-width: layout.breakpoint(md)) {
+    font-size: 1.6rem;
+  }
 }
 
 .subtitle_text {
