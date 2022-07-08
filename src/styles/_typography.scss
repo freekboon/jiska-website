@@ -47,6 +47,15 @@ $family: 'Montserrat', sans-serif;
   letter-spacing: 0.00735em;
 }
 
+.subtitle_text {
+  @extend %base;
+
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.75;
+  letter-spacing: 0.00938em;
+}
+
 .body {
   @extend %base;
 

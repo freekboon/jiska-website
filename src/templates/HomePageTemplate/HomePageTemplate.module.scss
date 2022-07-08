@@ -2,15 +2,3 @@
 @use "src/styles/layout";
 @use "src/styles/buttons";
 
-.root {
-}
-
-.section {
-  @extend .container_lg;
-
-  padding-top: 4rem;
-
-  @media (max-width: layout.breakpoint(md)) {
-    padding-top: 1rem;
-  }
-}
