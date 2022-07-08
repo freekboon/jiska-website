@@ -43,9 +43,18 @@ const Skill = ({ title, progress }) => {
   );
 };
 
-Skill.propTypes = {
-  title: string.isRequired,
+export const SkillType = {
+  id: string.isRequired,
   progress: number.isRequired,
+  title: string.isRequired,
 };
+
+export const SkillFragment = `
+  id
+  progress
+  title
+`;
+
+Skill.propTypes = SkillType;
 
 export default Skill;

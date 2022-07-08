@@ -1,4 +1,10 @@
 @use "src/styles/typography";
 @use "src/styles/layout";
 @use "src/styles/buttons";
+@use "src/styles/grid";
 
+.skills {
+  @extend .grid;
+
+  row-gap: 2rem;
+}

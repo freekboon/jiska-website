@@ -15,7 +15,7 @@ $cols: 12;
       padding: 0 1rem;
 
       @media (min-width: #{$value}px) {
-        width: calc(100% / 12) * $col;
+        width: calc(100% / 12) * $col !important;
       }
     }
   }

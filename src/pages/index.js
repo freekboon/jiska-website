@@ -5,6 +5,7 @@ import { gql } from "graphql-request";
 import HomePageTemplate from "~templates/HomePageTemplate";
 import { ImageFragment } from "~components/Image";
 import { JobFragment } from "~components/Job";
+import { SkillFragment } from "~components/Skill";
 
 const Home = (props) => <HomePageTemplate {...props} />;
 
@@ -22,6 +23,9 @@ const HOME_PAGE_QUERY = gql`
       }
       previousJobs {
         ${JobFragment}
+      }
+      skills {
+        ${SkillFragment}
       }
     }
   }

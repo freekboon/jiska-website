@@ -5,7 +5,8 @@ import Section from "~components/Section";
 import { ImageType } from "~components/Image";
 import HeroSection from "~modules/HeroSection";
 import Job, { JobType } from "~components/Job";
-import Skill from "~components/Skill";
+import Skill, { SkillType } from "~components/Skill";
+import classnames from "~utils/classnames";
 
 const HomePageTemplate = ({ homePage }) => (
   <div>
@@ -27,9 +28,16 @@ const HomePageTemplate = ({ homePage }) => (
     <Section sectionId="soft-skills" className={classes.container_lg}>
       <h2>Soft skills</h2>
     </Section>
-    <Section sectionId="skills" className={classes.container_lg}>
-      <div style={{ width: "300px" }}>
-        <Skill title="yeay" progress={45} />
+    <Section sectionId="skills" className={classes.container_md}>
+      <div className={classes.skills}>
+        {homePage.skills.map((skill) => (
+          <div
+            key={skill.id}
+            className={classnames([classes.col_md_4, classes.col_sm_6])}
+          >
+            <Skill {...skill} />
+          </div>
+        ))}
       </div>
     </Section>
     <Section sectionId="contact" className={classes.container_lg}>
@@ -44,6 +52,7 @@ HomePageTemplate.propTypes = {
     intro: string,
     heroImage: shape(ImageType),
     previousJobs: arrayOf(shape(JobType)),
+    skills: arrayOf(shape(SkillType)),
   }),
 };
 
